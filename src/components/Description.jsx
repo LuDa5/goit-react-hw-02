@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "./Statistics.module.css";
+import styles from "./Description.module.css";
 
-const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
+const Description = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
-    <div className={styles.statistics}>
+    <div className={styles.Description}>
       <h2>Statistics</h2>
       <p>Good: {good}</p>
       <p>Neutral: {neutral}</p>
@@ -14,4 +14,4 @@ const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   );
 };
 
-export default Statistics;
+export default Description;

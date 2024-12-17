@@ -3,7 +3,7 @@ import styles from "./Feedback.module.css";
 
 const Feedback = () => {
   return (
-    <div className={styles.feedback}>
+    <div className={styles.Feedback}>
       <h2>Feedback</h2>
     </div>
   );

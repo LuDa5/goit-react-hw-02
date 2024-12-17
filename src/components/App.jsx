@@ -1,27 +1,27 @@
 import React, { useState, useEffect } from "react";
-import Feedback from "../components/Feedback.jsx";
+import Feedback from "./Feedback.jsx";
 import Options from "../components/Options.jsx";
-import Statistics from "../components/Statistics.jsx";
+import Description from "../components/Description.jsx";
 import Notification from "../components/Notification.jsx";
 import styles from "./App.module.css";
 
 const App = () => {
-  const [feedback, setFeedback] = useState({
+  const [Feedback, setFeedback] = useState({
     good: 0,
     neutral: 0,
     bad: 0,
   });
 
   useEffect(() => {
-    const savedFeedback = localStorage.getItem("feedback");
+    const savedFeedback = localStorage.getItem("Feedback");
     if (savedFeedback) {
       setFeedback(JSON.parse(savedFeedback));
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("feedback", JSON.stringify(feedback));
-  }, [feedback]);
+    localStorage.setItem("Feedback", JSON.stringify(Feedback));
+  }, [Feedback]);
 
   const updateFeedback = (type) => {
     setFeedback((prevState) => ({
@@ -34,9 +34,9 @@ const App = () => {
     setFeedback({ good: 0, neutral: 0, bad: 0 });
   };
 
-  const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
+  const totalFeedback = Feedback.good + Feedback.neutral + Feedback.bad;
   const positiveFeedbackPercentage = totalFeedback
-    ? Math.round((feedback.good / totalFeedback) * 100)
+    ? Math.round((Feedback.good / totalFeedback) * 100)
     : 0;
 
   return (
@@ -52,10 +52,10 @@ const App = () => {
         onReset={resetFeedback}
       />
       {totalFeedback > 0 ? (
-        <Statistics
-          good={feedback.good}
-          neutral={feedback.neutral}
-          bad={feedback.bad}
+        <Description
+          good={Feedback.good}
+          neutral={Feedback.neutral}
+          bad={Feedback.bad}
           total={totalFeedback}
           positivePercentage={positiveFeedbackPercentage}
         />
